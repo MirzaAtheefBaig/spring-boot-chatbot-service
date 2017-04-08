@@ -5,7 +5,6 @@ import javax.persistence.Entity;
 /**
  * Created by Kanstantsin_Tolstsik on 4/8/2017.
  */
-@Entity
 public class Checker {
 
     private String result;
