@@ -24,6 +24,8 @@ public class Goal {
     //used for size, cost or other information
     private String data;
 
+    private Boolean isCompleted;
+
     public Job getJob() {
         return job;
     }
@@ -56,6 +58,14 @@ public class Goal {
         this.data = data;
     }
 
+    public Boolean getCompleted() {
+        return isCompleted;
+    }
+
+    public void setCompleted(Boolean completed) {
+        isCompleted = completed;
+    }
+
     @Override
     public String toString() {
         return "Goal{" +
@@ -63,6 +73,7 @@ public class Goal {
                 ", id=" + id +
                 ", goalType=" + goalType +
                 ", data='" + data + '\'' +
+                ", isCompleted=" + isCompleted +
                 '}';
     }
 }

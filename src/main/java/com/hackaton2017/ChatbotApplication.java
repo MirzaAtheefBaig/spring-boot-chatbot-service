@@ -51,11 +51,13 @@ public class ChatbotApplication {
             goal1.setGoalType(GoalType.SIZE_WAITING);
             goal1.setData("L");
             goal1.setJob(job2);
+            goal1.setCompleted(false);
             goalRepository.save(goal1);
             Goal goal2 = new Goal();
             goal2.setGoalType(GoalType.SIZE_WAITING);
             goal2.setData("XL");
             goal2.setJob(job1);
+            goal2.setCompleted(false);
             goalRepository.save(goal2);
 //            jobRepository.findAll().forEach(item -> {
 //                log.info(item.toString());
