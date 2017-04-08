@@ -53,20 +53,6 @@ public class ShopItemProcessor {
                 }
                 goalRepository.save(goal);
             }
-
-            goals = goalRepository.findAllByJob(job);
-            boolean isJobCompleted = false;
-            for (final Goal goal : goals) {
-                if (goal.getCompleted().equals(Boolean.TRUE)) {
-                    isJobCompleted = true;
-                    continue;
-                } else {
-                    isJobCompleted = false;
-                    break;
-                }
-            }
-//            job.setCompleted(isJobCompleted);
-//            jobRepository.save(job);
         }
     }
 
