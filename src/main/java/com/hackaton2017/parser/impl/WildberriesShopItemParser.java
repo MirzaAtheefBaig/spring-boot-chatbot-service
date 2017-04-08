@@ -41,7 +41,7 @@ public class WildberriesShopItemParser implements ShopItemParser {
 
         ShopItem shopItem = new ShopItem();
         shopItem.setCode(productItemWildberries.getProductId()[0]);
-        shopItem.setCost(Double.parseDouble(productItemWildberries.getPrice()[0]));
+        shopItem.setCost(Double.parseDouble(productItemWildberries.getPrice()[0]) / 10000);
         shopItem.setSize(Arrays.asList(productItemWildberries.getAvailableSizes()));
 
         System.out.println(shopItem.toString());
