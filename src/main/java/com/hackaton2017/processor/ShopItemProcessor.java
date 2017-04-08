@@ -48,8 +48,10 @@ public class ShopItemProcessor {
             for (final Goal goal : goals) {
                 if (isGoalCompleted(shopItem, goal)) {
                     goal.setCompleted(true);
-                    goalRepository.save(goal);
+                } else {
+                    goal.setCompleted(false);
                 }
+                goalRepository.save(goal);
             }
 
             goals = goalRepository.findAllByJob(job);
