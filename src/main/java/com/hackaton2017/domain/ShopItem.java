@@ -83,7 +83,7 @@ public class ShopItem {
 
     @Override
     public String toString() {
-        return "ProductItemWildberries{" +
+        return "ShopItem {" +
                 "id=" + id +
                 ", code=" + code +
                 ", name='" + name + '\'' +

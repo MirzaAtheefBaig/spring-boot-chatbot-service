@@ -3,6 +3,8 @@ package com.hackaton2017.parser.product_items;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.util.List;
+
 /**
  * Created by Vadzim Kavalkou on 08.04.2017.
  */
@@ -19,10 +21,10 @@ public class ProductItemLamoda extends ProductItem {
     private Double price;
 
     @JsonProperty("Psize")
-    private String[] availableSizes;
+    private List<String> availableSizes;
 
     @JsonProperty("PColors")
-    private String[] colors;
+    private List<String> colors;
 
     @JsonProperty("ImageLink")
     private String imageLink;
@@ -51,19 +53,19 @@ public class ProductItemLamoda extends ProductItem {
         this.price = price;
     }
 
-    public String[] getAvailableSizes() {
+    public List<String> getAvailableSizes() {
         return availableSizes;
     }
 
-    public void setAvailableSizes(String[] availableSizes) {
+    public void setAvailableSizes(List<String> availableSizes) {
         this.availableSizes = availableSizes;
     }
 
-    public String[] getColors() {
+    public List<String> getColors() {
         return colors;
     }
 
-    public void setColors(String[] colors) {
+    public void setColors(List<String> colors) {
         this.colors = colors;
     }
 
@@ -103,5 +105,17 @@ public class ProductItemLamoda extends ProductItem {
                 .append(colors)
                 .append(imageLink)
                 .toHashCode();
+    }
+
+    @Override
+    public String toString() {
+        return "ProductItemLamoda{" +
+                "name='" + name + '\'' +
+                ", productId='" + productId + '\'' +
+                ", price=" + price +
+                ", availableSizes=" + availableSizes +
+                ", colors=" + colors +
+                ", imageLink='" + imageLink + '\'' +
+                '}';
     }
 }
