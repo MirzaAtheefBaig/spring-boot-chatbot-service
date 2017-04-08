@@ -5,6 +5,7 @@ import com.hackaton2017.domain.Job;
 import com.hackaton2017.domain.ShopItem;
 import com.hackaton2017.parser.ShopItemParser;
 import com.hackaton2017.parser.product_items.ProductItemLamoda;
+import com.hackaton2017.searcher.impl.LamodaSimilarItemsSearcher;
 import org.codehaus.jettison.json.JSONArray;
 import org.codehaus.jettison.json.JSONException;
 import org.codehaus.jettison.json.JSONObject;
@@ -13,6 +14,7 @@ import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
 import java.io.IOException;
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -68,6 +70,10 @@ public class LamodaShopItemParses implements ShopItemParser, Function<Map<String
 
         System.out.println(shopItem.toString());
 
+        URI similarItemsSearcher = new LamodaSimilarItemsSearcher().getSimilarItemsUrl(shopItem); //TODO: IMPLEMENT LOGIC
+
+        System.out.println(similarItemsSearcher.toString());
+
         return shopItem;
     }
 
@@ -105,17 +111,10 @@ public class LamodaShopItemParses implements ShopItemParser, Function<Map<String
             e.printStackTrace();
         }
 
-        jsonObjectSizes.stream().forEach(jsonObject -> accept(jsonObject));
-
-        Pattern pattern = Pattern.compile("\\d+.?\\d+");
-        Matcher matcher = pattern.matcher(cost);
-
-        if (matcher.find()) {
-            cost = matcher.group();
-        }
+        jsonObjectSizes.stream().forEach(this::accept);
 
         item.setName(name);
-        item.setPrice(Double.parseDouble(cost));
+        item.setPrice(getPrice());
         item.setProductId(id);
         item.setAvailableSizes(availableSizes);
 
@@ -135,5 +134,17 @@ public class LamodaShopItemParses implements ShopItemParser, Function<Map<String
             e.printStackTrace();
         }
 
+    }
+
+    private Double getPrice() {
+
+        Pattern pattern = Pattern.compile("\\d+.?\\d+");
+        Matcher matcher = pattern.matcher(cost);
+
+        if (matcher.find()) {
+            cost = matcher.group();
+        }
+
+        return Double.parseDouble(cost);
     }
 }
