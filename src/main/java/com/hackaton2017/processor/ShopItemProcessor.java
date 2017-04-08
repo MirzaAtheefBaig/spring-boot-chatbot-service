@@ -65,8 +65,8 @@ public class ShopItemProcessor {
                     break;
                 }
             }
-            job.setCompleted(isJobCompleted);
-            jobRepository.save(job);
+//            job.setCompleted(isJobCompleted);
+//            jobRepository.save(job);
         }
     }
 
