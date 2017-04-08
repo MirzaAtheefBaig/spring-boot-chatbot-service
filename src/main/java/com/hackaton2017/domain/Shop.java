@@ -6,6 +6,7 @@ package com.hackaton2017.domain;
 public enum Shop {
 
     WILDBERRIES("Wildberries.by"),
+    LAMODA("Lamoda.by"),
     EBAY("Ebay.com");
 
     private String shopName;

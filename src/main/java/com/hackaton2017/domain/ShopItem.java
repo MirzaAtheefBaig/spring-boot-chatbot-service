@@ -13,11 +13,11 @@ public class ShopItem {
     @GeneratedValue
     private Long id;
 
-    private Long code;
+    private String code;
 
     private String name;
 
-    private Long cost;
+    private Double cost;
 
     private Collection<String> size;
 
@@ -33,11 +33,11 @@ public class ShopItem {
         this.id = id;
     }
 
-    public Long getCode() {
+    public String getCode() {
         return code;
     }
 
-    public void setCode(Long code) {
+    public void setCode(String code) {
         this.code = code;
     }
 
@@ -49,11 +49,11 @@ public class ShopItem {
         this.name = name;
     }
 
-    public Long getCost() {
+    public Double getCost() {
         return cost;
     }
 
-    public void setCost(Long cost) {
+    public void setCost(Double cost) {
         this.cost = cost;
     }
 
@@ -83,7 +83,7 @@ public class ShopItem {
 
     @Override
     public String toString() {
-        return "ProductItem{" +
+        return "ProductItemWildberries{" +
                 "id=" + id +
                 ", code=" + code +
                 ", name='" + name + '\'' +

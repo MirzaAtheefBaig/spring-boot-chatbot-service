@@ -2,6 +2,7 @@ package com.hackaton2017.processor;
 
 import com.hackaton2017.domain.Job;
 import com.hackaton2017.parser.ShopItemParser;
+import com.hackaton2017.parser.impl.LamodaShopItemParses;
 import com.hackaton2017.parser.impl.WildberriesShopItemParser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,8 +20,10 @@ public class ShopItemProcessor {
     @Scheduled(fixedRate = 10000)
     public void processShopItem() {
         System.out.println("SCANNING!!!!!");
-        ShopItemParser parser = new WildberriesShopItemParser();
-        parser.parse(new Job());
+
+        new WildberriesShopItemParser().parse(new Job());
+
+        new LamodaShopItemParses().parse(new Job());
 
     }
 }
