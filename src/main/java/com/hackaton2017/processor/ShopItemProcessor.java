@@ -44,7 +44,7 @@ public class ShopItemProcessor {
             }
             final ShopItem shopItem = parser.parse(job);
             List<Goal> goals = goalRepository.findAllByJob(job);
-            if (goals == null || goals.isEmpty()) break;
+            if (goals == null || goals.isEmpty()) continue;
             for (final Goal goal : goals) {
                 if (isGoalCompleted(shopItem, goal)) {
                     goal.setCompleted(true);
