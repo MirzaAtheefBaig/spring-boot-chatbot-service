@@ -11,4 +11,6 @@ import java.util.List;
 public interface JobRepository extends JpaRepository<Job, Long> {
 
     List<Job> findAllByIsCompleted(final Boolean isCompleted);
+
+    Job findJobById(final Long id);
 }
