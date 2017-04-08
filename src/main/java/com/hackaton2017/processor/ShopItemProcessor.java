@@ -2,6 +2,7 @@ package com.hackaton2017.processor;
 
 import com.hackaton2017.domain.*;
 import com.hackaton2017.parser.ShopItemParser;
+import com.hackaton2017.parser.impl.LamodaShopItemParses;
 import com.hackaton2017.parser.impl.WildberriesShopItemParser;
 import com.hackaton2017.repository.GoalRepository;
 import com.hackaton2017.repository.JobRepository;
@@ -38,15 +39,20 @@ public class ShopItemProcessor {
             if (Shop.WILDBERRIES.equals(job.getShop())) {
                 parser = new WildberriesShopItemParser();
             }
+            if (Shop.LAMODA.equals(job.getShop())) {
+                parser = new LamodaShopItemParses();
+            }
             final ShopItem shopItem = parser.parse(job);
-            for (final Goal goal : job.getGoals()) {
+            List<Goal> goals = goalRepository.findAllByJob(job);
+            if (goals == null || goals.isEmpty()) break;
+            for (final Goal goal : goals) {
                 if (isGoalCompleted(shopItem, goal)) {
                     goal.setCompleted(true);
                     goalRepository.save(goal);
                 }
             }
 
-            final List<Goal> goals = job.getGoals();
+            goals = goalRepository.findAllByJob(job);
             boolean isJobCompleted = false;
             for (final Goal goal : goals) {
                 if (goal.getCompleted().equals(Boolean.TRUE)) {

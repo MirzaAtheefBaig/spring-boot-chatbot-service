@@ -34,34 +34,31 @@ public class ChatbotApplication {
     @Bean
     CommandLineRunner runner () {
         return args -> {
-            final Job job1 = new Job();
-            job1.setJobType(JobType.GETTING_ITEM_DETAILS);
-            job1.setShop(Shop.WILDBERRIES);
-            job1.setUrl("http://example1.com");
-            job1.setCompleted(Boolean.FALSE);
-            final Job job2 = new Job();
-            job2.setJobType(JobType.GETTING_ITEM_DETAILS);
-            job2.setShop(Shop.EBAY);
-            job2.setUrl("http://example2.com");
-            job2.setCompleted(Boolean.FALSE);
-            jobRepository.save(job1);
-            jobRepository.save(job2);
-
-            Goal goal1 = new Goal();
-            goal1.setGoalType(GoalType.SIZE_WAITING);
-            goal1.setData("L");
-            goal1.setJob(job2);
-            goal1.setCompleted(false);
-            goalRepository.save(goal1);
-            Goal goal2 = new Goal();
-            goal2.setGoalType(GoalType.SIZE_WAITING);
-            goal2.setData("XL");
-            goal2.setJob(job1);
-            goal2.setCompleted(false);
-            goalRepository.save(goal2);
-//            jobRepository.findAll().forEach(item -> {
-//                log.info(item.toString());
-//            });
+//            final Job job1 = new Job();
+//            job1.setJobType(JobType.GETTING_ITEM_DETAILS);
+//            job1.setShop(Shop.WILDBERRIES);
+//            job1.setUrl("http://example1.com");
+//            job1.setCompleted(Boolean.FALSE);
+//            final Job job2 = new Job();
+//            job2.setJobType(JobType.GETTING_ITEM_DETAILS);
+//            job2.setShop(Shop.EBAY);
+//            job2.setUrl("http://example2.com");
+//            job2.setCompleted(Boolean.FALSE);
+//            jobRepository.save(job1);
+//            jobRepository.save(job2);
+//
+//            Goal goal1 = new Goal();
+//            goal1.setGoalType(GoalType.SIZE_WAITING);
+//            goal1.setData("L");
+//            goal1.setJob(job2);
+//            goal1.setCompleted(false);
+//            goalRepository.save(goal1);
+//            Goal goal2 = new Goal();
+//            goal2.setGoalType(GoalType.SIZE_WAITING);
+//            goal2.setData("XL");
+//            goal2.setJob(job1);
+//            goal2.setCompleted(false);
+//            goalRepository.save(goal2);
         };
     }
 }

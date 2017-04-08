@@ -21,10 +21,10 @@ public class ProductItemWildberries {
     private String productBrand;
 
     @JsonProperty("ProdID")
-    private Long[] productId;
+    private String[] productId;
 
     @JsonProperty("Value")
-    private Long[] price;
+    private String[] price;
 
     @JsonProperty("Psize")
     private String[] availableSizes;
@@ -53,19 +53,19 @@ public class ProductItemWildberries {
         this.productBrand = productBrand;
     }
 
-    public Long[] getProductId() {
+    public String[] getProductId() {
         return productId;
     }
 
-    public void setProductId(Long[] productId) {
+    public void setProductId(String[] productId) {
         this.productId = productId;
     }
 
-    public Long[] getPrice() {
+    public String[] getPrice() {
         return price;
     }
 
-    public void setPrice(Long[] price) {
+    public void setPrice(String[] price) {
         this.price = price;
     }
 

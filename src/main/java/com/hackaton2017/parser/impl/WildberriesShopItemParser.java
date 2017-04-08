@@ -10,6 +10,7 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
 import java.io.IOException;
+import java.util.Arrays;
 
 /**
  * Created by Kanstantsin_Tolstsik on 4/4/2017.
@@ -21,7 +22,7 @@ public class WildberriesShopItemParser implements ShopItemParser {
 
         Document document = null;
         try {
-            document = Jsoup.connect("https://www.wildberries.by/catalog/3798636/detail.aspx?targetUrl=GP").get();
+            document = Jsoup.connect(job.getUrl()).get();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -40,6 +41,11 @@ public class WildberriesShopItemParser implements ShopItemParser {
 
         System.out.println(productItemWildberries);
 
-        return null; //TODO IMPLEMENT LOGIC
+        ShopItem shopItem = new ShopItem();
+        shopItem.setCode(productItemWildberries.getProductId()[0]);
+        shopItem.setCost(Double.parseDouble(productItemWildberries.getPrice()[0]));
+        shopItem.setSize(Arrays.asList(productItemWildberries.getAvailableSizes()));
+
+        return shopItem;
     }
 }
