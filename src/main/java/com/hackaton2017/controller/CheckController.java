@@ -35,7 +35,7 @@ public class CheckController {
             List<Goal> goals = goalRepository.findAllByJob(job);
             boolean result = false;
             for (Goal goal : goals) {
-                result = goal.getCompleted().booleanValue();
+                result = goal.isCompleted();
                 if (!result) break;
             }
 

@@ -4,6 +4,8 @@ import com.hackaton2017.domain.Goal;
 import com.hackaton2017.domain.Job;
 import com.hackaton2017.repository.GoalRepository;
 import com.hackaton2017.repository.JobRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -24,6 +26,8 @@ public class GoalController {
 
     @Autowired
     private JobRepository jobRepository;
+
+    private static final Logger log = LoggerFactory.getLogger(GoalController.class);
 
     @RequestMapping(value = "/goals", method = RequestMethod.GET)
     ResponseEntity<Iterable<Goal>> getGoals() {
