@@ -1,4 +1,4 @@
-package com.hackaton2017.parser.impl;
+package com.hackaton2017.parser.product_items;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -9,7 +9,7 @@ import java.util.Arrays;
  * Created by Kanstantsin_Tolstsik on 4/6/2017.
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ProductItem {
+public class ProductItemWildberries {
 
     @JsonProperty("PageType")
     private String pageType;
@@ -79,7 +79,7 @@ public class ProductItem {
 
     @Override
     public String toString() {
-        return "ProductItem{" +
+        return "ProductItemWildberries{" +
                 "pageType='" + pageType + '\'' +
                 ", productType=" + Arrays.toString(productType) +
                 ", productBrand='" + productBrand + '\'' +
