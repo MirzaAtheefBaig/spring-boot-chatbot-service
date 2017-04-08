@@ -39,12 +39,12 @@ public class WildberriesShopItemParser implements ShopItemParser {
 
         Element el = document.getElementById("j-similar-carousel");
 
-        System.out.println(productItemWildberries);
-
         ShopItem shopItem = new ShopItem();
         shopItem.setCode(productItemWildberries.getProductId()[0]);
         shopItem.setCost(Double.parseDouble(productItemWildberries.getPrice()[0]));
         shopItem.setSize(Arrays.asList(productItemWildberries.getAvailableSizes()));
+
+        System.out.println(shopItem.toString());
 
         return shopItem;
     }
