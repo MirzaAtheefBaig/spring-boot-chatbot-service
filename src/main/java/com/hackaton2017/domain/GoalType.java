@@ -5,7 +5,8 @@ package com.hackaton2017.domain;
  */
 public enum GoalType {
 
-    SIZE_WAITING("Waiting for size");
+    SIZE_WAITING("Waiting for size"),
+    COST_WAITING("Waiting for good cost");
 
     private String goalDescription;
 

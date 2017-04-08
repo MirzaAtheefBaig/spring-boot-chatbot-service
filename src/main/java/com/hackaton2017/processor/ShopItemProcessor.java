@@ -61,6 +61,11 @@ public class ShopItemProcessor {
             final Collection<String> sizes = shopItem.getSize();
             if (sizes.contains(goal.getData())) return true;
         }
+        if (GoalType.COST_WAITING.equals(goal.getGoalType())) {
+            final Double waitingCost = Double.parseDouble(goal.getData());
+            final Double actualCost = shopItem.getCost();
+            if (Double.compare(waitingCost, actualCost) >= 0) return true;
+        }
         return false;
     }
 }
